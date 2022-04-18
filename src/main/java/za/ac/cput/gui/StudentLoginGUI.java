@@ -78,3 +78,4 @@ public class StudentLoginGUI extends JPanel {
         frame.pack();
         frame.setVisible (true);
     }
+} 
