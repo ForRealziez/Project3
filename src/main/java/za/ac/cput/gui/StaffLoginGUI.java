@@ -1,8 +1,8 @@
 package za.ac.cput.gui;
 /*
-      Project 3
-      Author: Titilayo Nikelwa Ore-ofe Akinjole (220283982)
-      Staff Login GUI
+     Project 3
+     Author: Titilayo Nikelwa Ore-ofe Akinjole (220283982)
+     Staff Login GUI
 */
 
 import javax.swing.*;

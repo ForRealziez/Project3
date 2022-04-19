@@ -56,7 +56,7 @@ public class StaffRegisterGUI implements ActionListener{
     }
 
     public void createWindow(){
-        //Properties of JFrame
+        //Properties of JFrame//
         frame = new JFrame();
         frame.setTitle("Staff Registration Form");
         frame.setBounds(40,40,450,900);
