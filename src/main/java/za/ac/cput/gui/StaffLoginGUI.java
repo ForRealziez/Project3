@@ -8,6 +8,9 @@ package za.ac.cput.gui;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+
+
 
 public class StaffLoginGUI implements ActionListener{
     //Creating object of JFrame class
@@ -31,6 +34,8 @@ public class StaffLoginGUI implements ActionListener{
     JButton registerButton = new JButton("Register");
     JButton forgotPasswordButton = new JButton("Forgot password");
 
+    private Font font1;
+    private Font font2;
     //Constructor
 
     StaffLoginGUI(){
@@ -43,15 +48,22 @@ public class StaffLoginGUI implements ActionListener{
         frame2 = new JFrame();
         frame2.setTitle("Staff Login Form");
         frame2.setBounds(40,40,420,800);
-        frame2.getContentPane().setBackground(Color.GRAY);
+        frame2.getContentPane().setBackground(Color.decode("#17252A"));
         frame2.getContentPane().setLayout(null);
         frame2.setVisible(true);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setResizable(true);
+
+        registerButton.setForeground(Color.white);
+        registerButton.setBackground(Color.decode("#3AAFA9"));
+
+        font1 = new Font("Times New Roman", Font.BOLD | Font.ITALIC,15);
+        font2 = new Font("Courier", Font.ITALIC,25);
     }
 
     public void setLocationAndSizes(){
         headerLabel.setBounds(20,130,400,70);
+        headerLabel.setFont(font1);
 
         CPUTImage.setBounds(85,10,250,140);
 
@@ -80,22 +92,63 @@ public class StaffLoginGUI implements ActionListener{
         frame2.add(loginButton);
         frame2.add(registerButton);
         frame2.add(forgotPasswordButton);
-    }
-    public void actionEvent(){
+
         loginButton.addActionListener(this);
         registerButton.addActionListener(this);
         forgotPasswordButton.addActionListener(this);
     }
+    public void actionPerformed(ActionEvent e){
+
+            switch (e.getActionCommand()) {
+
+                case "Register" -> {
+
+                    StaffRegisterGUI register = new StaffRegisterGUI();
+                    register.setVisible(true);
+                    register.show();
+
+                    break;
+                }
+
+                case "Login" -> {
+                    String email = emailTextField.getText();
+                    String psd = passwordField.getText();
+
+                    if (email.equals("staff@cput.com") && psd.equals("password")){
+
+                    JOptionPane.showMessageDialog(null, "Login successful");
+                }
+                    else if (email.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Please insert email address");
+                    }
+                    else if (psd.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Please insert password");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "User not found, Please register");
+                    }
+
+                    break;
+
+                }
+
+
+            }
+
+
+        }
 
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-    }
+
 
     public static void main(String[] args) {
         new StaffLoginGUI();
 
+
+
     }
-}
+
+
+        }
