@@ -12,8 +12,9 @@ import java.awt.*;
 
 public class StaffRegisterGUI implements ActionListener{
 
-    //Creating object of JFrame class
+
     JFrame frame;
+    JLabel CPUTImage = new JLabel(new ImageIcon("CPUT.jpg"));
 
     //Objects
     String[] gender= new String[]{"CHOOSE GENDER","Male", "Female"};
@@ -60,14 +61,17 @@ public class StaffRegisterGUI implements ActionListener{
         frame = new JFrame();
         frame.setTitle("Staff Registration Form");
         frame.setBounds(40,40,450,900);
-        frame.getContentPane().setBackground(Color.blue);
+        frame.getContentPane().setBackground(Color.decode("#17252A"));
         frame.getContentPane().setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
+        frame.setFont(new Font("Times New Roman", Font.PLAIN, 15));
     }
 
     public void setLocationAndSize(){
+        CPUTImage.setBounds(85,490,250,140);
+
         nameLabel.setBounds(20,20,70,70);
         nameTextField.setBounds(200,43,165,23);
 
@@ -98,6 +102,7 @@ public class StaffRegisterGUI implements ActionListener{
     }
 
     public void addComponentsToFrame(){
+        frame.add(CPUTImage);
         frame.add(nameLabel);
         frame.add(surnameLabel);
         frame.add(genderLabel);
@@ -132,6 +137,12 @@ public class StaffRegisterGUI implements ActionListener{
 
     public static void main(String[] args) {
         new StaffRegisterGUI();
+    }
+
+    public void setVisible(boolean b) {
+    }
+
+    public void show() {
     }
 }
 
